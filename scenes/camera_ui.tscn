@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://6731kmn2mj7f"]
+
+[ext_resource type="Texture2D" uid="uid://d3yybeq8tfudb" path="res://assets/ui/camera/Cam_Map.webp" id="1_4plvg"]
+[ext_resource type="Script" uid="uid://bql7lmjy7gq6o" path="res://scripts/camera_ui.gd" id="1_82rmu"]
+[ext_resource type="Texture2D" uid="uid://b2khab5svjs6w" path="res://assets/ui/camera/button camera 1.png" id="2_rj46f"]
+[ext_resource type="Texture2D" uid="uid://d0hu1a64aiew2" path="res://assets/ui/camera/button camera 2.png" id="3_82rmu"]
+[ext_resource type="Script" uid="uid://708eh7eno1n3" path="res://scripts/camera_button.gd" id="5_gmg8b"]
+[ext_resource type="Texture2D" uid="uid://6l8rr1pi7jfp" path="res://assets/ui/camera/Drawing-1.sketchpad.jpeg" id="6_gmg8b"]
+
+[node name="camera_ui" type="CanvasLayer" unique_id=1462816602]
+script = ExtResource("1_82rmu")
+
+[node name="cam_map" type="Sprite2D" parent="." unique_id=733089388]
+position = Vector2(902, 215)
+texture = ExtResource("1_4plvg")
+
+[node name="lobby_camera_button" type="TextureButton" parent="cam_map" unique_id=1959369974]
+offset_left = -103.0
+offset_top = -128.0
+offset_right = -63.0
+offset_bottom = -88.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="stage_cam_button" type="TextureButton" parent="cam_map" unique_id=849292170]
+offset_left = -81.0
+offset_top = -189.0
+offset_right = -21.0
+offset_bottom = -149.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="parts_cam_button" type="TextureButton" parent="cam_map" unique_id=412998901]
+offset_left = -220.0
+offset_top = -98.0
+offset_right = -160.0
+offset_bottom = -58.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="foxy_cam_button" type="TextureButton" parent="cam_map" unique_id=253880287]
+offset_left = -138.0
+offset_top = -42.0
+offset_right = -78.0
+offset_bottom = -2.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="bathroom_cam_button" type="TextureButton" parent="cam_map" unique_id=289498889]
+offset_left = 151.0
+offset_top = -97.0
+offset_right = 211.0
+offset_bottom = -57.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="kitchen_cam_button" type="TextureButton" parent="cam_map" unique_id=564073619]
+offset_left = 142.0
+offset_top = 46.0
+offset_right = 202.0
+offset_bottom = 86.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("6_gmg8b")
+script = ExtResource("5_gmg8b")
+
+[node name="right_hallway_cam_button" type="TextureButton" parent="cam_map" unique_id=1605085679]
+offset_left = 35.0
+offset_top = 87.0
+offset_right = 95.0
+offset_bottom = 127.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="right_door_cam_button" type="TextureButton" parent="cam_map" unique_id=1019579087]
+offset_left = 35.0
+offset_top = 131.0
+offset_right = 95.0
+offset_bottom = 171.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="left_door_cam_button" type="TextureButton" parent="cam_map" unique_id=113840657]
+offset_left = -82.0
+offset_top = 130.0
+offset_right = -22.0
+offset_bottom = 170.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="left_hallway_cam_button" type="TextureButton" parent="cam_map" unique_id=2079365210]
+offset_left = -82.0
+offset_top = 86.0
+offset_right = -22.0
+offset_bottom = 126.0
+scale = Vector2(1.0497082, 1.0538069)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[node name="janitor_cam_button" type="TextureButton" parent="cam_map" unique_id=609693158]
+offset_left = -173.0
+offset_top = 66.0
+offset_right = -113.0
+offset_bottom = 106.0
+scale = Vector2(1.0378883, 1.0229652)
+texture_normal = ExtResource("2_rj46f")
+texture_pressed = ExtResource("3_82rmu")
+script = ExtResource("5_gmg8b")
+
+[connection signal="pressed" from="cam_map/lobby_camera_button" to="." method="_on_lobby_camera_button_pressed"]
+[connection signal="pressed" from="cam_map/stage_cam_button" to="." method="_on_stage_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/parts_cam_button" to="." method="_on_parts_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/foxy_cam_button" to="." method="_on_foxy_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/bathroom_cam_button" to="." method="_on_bathroom_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/kitchen_cam_button" to="." method="_on_kitchen_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/right_hallway_cam_button" to="." method="_on_right_hallway_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/right_door_cam_button" to="." method="_on_right_door_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/left_door_cam_button" to="." method="_on_left_door_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/left_hallway_cam_button" to="." method="_on_left_hallway_cam_button_pressed"]
+[connection signal="pressed" from="cam_map/janitor_cam_button" to="." method="_on_janitor_cam_button_pressed"]

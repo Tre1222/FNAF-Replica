@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://ca57nh2qrlx02"]
+
+[ext_resource type="Script" uid="uid://dvffwsiwgxyf4" path="res://scripts/camera_arrow_ui.gd" id="1_etsbw"]
+[ext_resource type="Texture2D" uid="uid://ctkn31kswbqt1" path="res://assets/ui/open_close_cameras/camera arrow.png" id="1_vbufk"]
+[ext_resource type="Script" uid="uid://d10j2piss13cf" path="res://scripts/camera_arrow.gd" id="4_c1pp8"]
+[ext_resource type="Texture2D" uid="uid://dp3b2ntu3ljnq" path="res://assets/ui/camera/monitor/monitor 11.png" id="4_yppvi"]
+[ext_resource type="Texture2D" uid="uid://bqcl81tx6ofu4" path="res://assets/ui/camera/monitor/monitor 10.png" id="5_enh37"]
+[ext_resource type="Texture2D" uid="uid://be6ewtumv05h8" path="res://assets/ui/camera/monitor/monitor 9.png" id="6_ys4iq"]
+[ext_resource type="Texture2D" uid="uid://biv16eq0s56w0" path="res://assets/ui/camera/monitor/monitor 8.png" id="7_nfu5q"]
+[ext_resource type="Texture2D" uid="uid://dvl04h8vtypp5" path="res://assets/ui/camera/monitor/monitor 7.png" id="8_7bog2"]
+[ext_resource type="Texture2D" uid="uid://y4jpjvs7da3a" path="res://assets/ui/camera/monitor/monitor 6.png" id="9_ru3og"]
+[ext_resource type="Texture2D" uid="uid://ctr3mgeqorw0m" path="res://assets/ui/camera/monitor/monitor 5.png" id="10_qfyte"]
+[ext_resource type="Texture2D" uid="uid://bwuglmghjob81" path="res://assets/ui/camera/monitor/monitor 4.png" id="11_jtkp1"]
+[ext_resource type="Texture2D" uid="uid://doxph71m54kvs" path="res://assets/ui/camera/monitor/monitor 3.png" id="12_bb1eg"]
+[ext_resource type="Texture2D" uid="uid://biow0fv3wyk3n" path="res://assets/ui/camera/monitor/monitor 2.png" id="13_6qbc2"]
+[ext_resource type="Texture2D" uid="uid://dt8f18fvjbb0o" path="res://assets/ui/camera/monitor/monitor 1.png" id="14_n8opb"]
+[ext_resource type="Script" uid="uid://baujgx7xc4n7t" path="res://scripts/monitor.gd" id="15_awa7i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6evjv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("4_yppvi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_enh37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ys4iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nfu5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7bog2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ru3og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfyte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jtkp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bb1eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6qbc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_n8opb")
+}],
+"loop": false,
+"name": &"monitor_flip_down",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_n8opb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6qbc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bb1eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jtkp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qfyte")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ru3og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7bog2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nfu5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ys4iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_enh37")
+}, {
+"duration": 4.0,
+"texture": ExtResource("4_yppvi")
+}],
+"loop": false,
+"name": &"monitor_flip_up",
+"speed": 60.0
+}]
+
+[node name="camera_arrow_ui" type="CanvasLayer" unique_id=312929633]
+script = ExtResource("1_etsbw")
+
+[node name="camera_arrow" type="TextureButton" parent="." unique_id=1997816904]
+offset_left = 278.0
+offset_top = 522.0
+offset_right = 878.0
+offset_bottom = 582.0
+scale = Vector2(1, 2.04)
+texture_normal = ExtResource("1_vbufk")
+script = ExtResource("4_c1pp8")
+
+[node name="Timer" type="Timer" parent="camera_arrow" unique_id=1687623969]
+wait_time = 0.06
+one_shot = true
+autostart = true
+
+[node name="monitor" type="AnimatedSprite2D" parent="." unique_id=827694964]
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(0.90000004, 0.90000004)
+sprite_frames = SubResource("SpriteFrames_6evjv")
+animation = &"monitor_flip_up"
+script = ExtResource("15_awa7i")
+
+[node name="Timer" type="Timer" parent="monitor" unique_id=399701786]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="camera_arrow_toggled" from="." to="monitor" method="_on_camera_arrow_ui_camera_arrow_toggled"]
+[connection signal="mouse_entered" from="camera_arrow" to="." method="_on_camera_arrow_mouse_entered"]
+[connection signal="timeout" from="camera_arrow/Timer" to="camera_arrow" method="_on_timer_timeout"]
+[connection signal="timeout" from="monitor/Timer" to="monitor" method="_on_timer_timeout"]

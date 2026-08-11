@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### Fri Aug 7 2026 Added ###
 - Initial project scaffold (folder structure, .gitignore, README, LICENSE)
 - Design doc for the room/animatronic state system
-- Asset folders for 11 rooms (kitchen, office, hallways, doors, main room, backroom, 3 party rooms)
+## Fri Aug 8 2026 Added ## 
+- Added assets

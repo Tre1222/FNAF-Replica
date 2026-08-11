@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dffsvrlotb6bu"]
+
+[ext_resource type="PackedScene" uid="uid://dkklusmebrnk8" path="res://assets/imports/FreddyFazbearsPizza_Packed.glb" id="1_5wm66"]
+
+[node name="FreddyFazbearsPizza_Packed" unique_id=1688247775 instance=ExtResource("1_5wm66")]

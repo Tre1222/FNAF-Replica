@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://4vb0jjbg4mdn"]
+
+[ext_resource type="Script" uid="uid://bbofiv41ji5e7" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dffsvrlotb6bu" path="res://scenes/freddy_fazbears_pizza_packed.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://6731kmn2mj7f" path="res://scenes/camera_ui.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ca57nh2qrlx02" path="res://scenes/camera_arrow_ui.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://c0uml6c0gk3hy" path="res://scenes/glitch_effect.tscn" id="5_tbgi4"]
+
+[sub_resource type="Environment" id="Environment_tbgi4"]
+background_mode = 1
+ambient_light_source = 1
+volumetric_fog_enabled = true
+
+[node name="Main" type="Node3D" unique_id=654167642]
+script = ExtResource("1_0wfyh")
+
+[node name="camera_ui" parent="." unique_id=1462816602 instance=ExtResource("3_sugp2")]
+
+[node name="camera_arrow_ui" parent="." unique_id=312929633 instance=ExtResource("4_jyhfs")]
+
+[node name="glitch_effect" parent="." unique_id=979758699 instance=ExtResource("5_tbgi4")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1144848118]
+environment = SubResource("Environment_tbgi4")
+
+[node name="lights_node2" type="Node" parent="." unique_id=838634971]
+
+[node name="office_lamp" type="SpotLight3D" parent="lights_node2" unique_id=949910958]
+transform = Transform3D(1, 0, 0, 0, -0.015864346, 0.9998742, 0, -0.9998742, -0.015864346, -14.507819, 7.0981474, -7.447708)
+light_color = Color(0.9423546, 1, 0.70367634, 1)
+light_energy = 8.147
+light_indirect_energy = 3.014
+shadow_enabled = true
+distance_fade_enabled = true
+spot_range = 7.226
+spot_attenuation = 2.12
+spot_angle = 32.11
+
+[node name="cupcake" type="OmniLight3D" parent="lights_node2" unique_id=199539323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.35252, 6.0814767, -9.99056)
+light_color = Color(1, 0.5058824, 0.15294118, 1)
+light_energy = 0.44
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+shadow_enabled = true
+omni_range = 4.58
+omni_attenuation = 0.06
+
+[node name="right_hallway" type="SpotLight3D" parent="lights_node2" unique_id=2075594561]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -10.983198, 7.142579, -12.6765995)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="left_hallway" type="SpotLight3D" parent="lights_node2" unique_id=2051804115]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -18.015268, 7.2420087, -12.68765)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="left_hallway2" type="SpotLight3D" parent="lights_node2" unique_id=1099905304]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -21.993967, 6.8363504, -15.405416)
+shadow_enabled = true
+distance_fade_enabled = true
+spot_angle = 87.8
+
+[node name="dining_1" type="SpotLight3D" parent="lights_node2" unique_id=344310089]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -19.500046, 7.727022, -24.324223)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_2" type="SpotLight3D" parent="lights_node2" unique_id=718887386]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -14.487616, 7.7421846, -24.324223)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_3" type="SpotLight3D" parent="lights_node2" unique_id=315498660]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -9.532411, 7.7421846, -24.324223)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_4" type="SpotLight3D" parent="lights_node2" unique_id=1061804680]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -9.532411, 7.7421846, -29.819859)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_5" type="SpotLight3D" parent="lights_node2" unique_id=1417954119]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -14.507693, 7.7421846, -29.819859)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_6" type="SpotLight3D" parent="lights_node2" unique_id=591082681]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -19.523197, 7.7421846, -29.819859)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_7" type="SpotLight3D" parent="lights_node2" unique_id=986048914]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -19.523197, 7.7421846, -35.265488)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_8" type="SpotLight3D" parent="lights_node2" unique_id=1206018578]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -14.524021, 7.7421846, -35.265488)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="dining_9" type="SpotLight3D" parent="lights_node2" unique_id=1301628702]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -9.543557, 7.7421846, -35.265488)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="stage_1" type="SpotLight3D" parent="lights_node2" unique_id=1144796040]
+transform = Transform3D(1, 0, 0, 0, -0.16706128, 0.98594654, 0, -0.98594654, -0.16706128, -11.4992, 7.7063417, -40.78481)
+shadow_enabled = true
+distance_fade_enabled = true
+spot_angle = 35.0
+
+[node name="stage_2" type="SpotLight3D" parent="lights_node2" unique_id=1758279572]
+transform = Transform3D(1, 0, 0, 0, -0.16706128, 0.98594654, 0, -0.98594654, -0.16706128, -17.501911, 7.7063417, -40.78481)
+shadow_enabled = true
+distance_fade_enabled = true
+spot_angle = 35.0
+
+[node name="parts_2" type="SpotLight3D" parent="lights_node2" unique_id=523613171]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -29.095387, 7.1610465, -34.35698)
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+
+[node name="parts_1" type="SpotLight3D" parent="lights_node2" unique_id=2021515193]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -29.095387, 7.1610465, -31.902887)
+shadow_enabled = true
+distance_fade_enabled = true
+distance_fade_begin = 0.0
+
+[node name="bathroom_1" type="SpotLight3D" parent="lights_node2" unique_id=1647094858]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -2.9913428, 7.2262774, -30.395422)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="bathroom_2" type="SpotLight3D" parent="lights_node2" unique_id=612602294]
+transform = Transform3D(1, 0, 0, 0, 0.018464545, 0.99982953, 0, -0.99982953, 0.018464545, -2.9913428, 7.2262774, -23.425346)
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="FreddyFazbearsPizza_Packed" parent="." unique_id=1688247775 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.506662, 3.8845549, -7.4732223)
+
+[node name="office_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1605583516]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008509636, 1.716474, 1.1174388)
+current = true
+fov = 99.4
+
+[node name="right_door_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=2100618596]
+transform = Transform3D(0.82547414, -0.29556644, 0.48086694, -0.001835162, 0.85052645, 0.5259291, -0.56443703, -0.43502337, 0.7015451, 4.5922203, 2.8839622, 4.9572086)
+
+[node name="left_door_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1814991023]
+transform = Transform3D(0.9583074, 0.15177189, -0.24209979, -0.0018351866, 0.8505264, 0.52592915, 0.28573352, -0.50355744, 0.8153443, -4.789255, 2.8839622, 4.9572086)
+
+[node name="left_hallway_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1301645141]
+transform = Transform3D(0.8700853, -0.25787207, 0.4200638, -0.0018351924, 0.85052645, 0.52592915, -0.49289775, -0.4583741, 0.7395573, -2.2197647, 2.8839622, -3.1767678)
+
+[node name="right_hallway_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=555080142]
+transform = Transform3D(0.76691365, 0.13059075, -0.6283228, 0.09734865, 0.94407344, 0.31503752, 0.63432384, -0.30277297, 0.71130997, 2.254015, 2.3757834, -3.6130042)
+
+[node name="janitor_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=45784339]
+transform = Transform3D(0.6432611, 0.58338046, -0.4958655, 0.02371741, 0.632149, 0.7744839, 0.76527953, -0.50995594, 0.39280054, -8.724485, 3.1921682, -6.96341)
+
+[node name="lobby_room_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1624691922]
+transform = Transform3D(-0.82269317, 0.25304475, -0.50906223, -0.017701028, 0.8836341, 0.46784356, 0.56821007, 0.39390263, -0.72248054, -10.283918, 3.3916945, -30.273077)
+
+[node name="parts_room_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1364456140]
+transform = Transform3D(0.8495913, 0.2599913, -0.45891088, -0.017701007, 0.88363403, 0.46784356, 0.52714455, -0.38935262, 0.7553299, -16.697542, 3.3916945, -20.893505)
+
+[node name="stage_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1697425106]
+transform = Transform3D(0.71243757, 0.33944774, -0.6141726, -0.017701022, 0.88363403, 0.46784353, 0.7015122, -0.32243782, 0.63554263, -4.6837387, 2.7498937, -30.814375)
+
+[node name="bathroom_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1959109824]
+transform = Transform3D(-0.87818176, 0.20995884, -0.42978373, -0.017701043, 0.8836341, 0.46784347, 0.4779994, 0.41845924, -0.77227485, 10.278628, 2.7498937, -26.003378)
+
+[node name="foxy_camera" type="Camera3D" parent="FreddyFazbearsPizza_Packed" unique_id=1960060821]
+transform = Transform3D(0.0108246505, -0.44237518, 0.8967648, -0.043572642, 0.89575684, 0.44240388, -0.9989916, -0.043863278, -0.0095792, -5.70393, 3.7862916, -17.53666)
+
+[connection signal="camera_arrow_toggled" from="camera_arrow_ui" to="camera_ui" method="_on_camera_arrow_ui_camera_arrow_toggled"]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b055swje6wnwb"]
+
+[ext_resource type="Script" uid="uid://bgvmna4ld0lpd" path="res://scripts/office_movement.gd" id="1_3nwij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rcdx5"]
+size = Vector2(289, 673)
+
+[node name="office_movement" type="CanvasLayer" unique_id=700272433]
+script = ExtResource("1_3nwij")
+
+[node name="left_movement" type="Area2D" parent="." unique_id=1201292651]
+position = Vector2(0, -1)
+
+[node name="left_collision" type="CollisionShape2D" parent="left_movement" unique_id=1732760277]
+position = Vector2(144, 331)
+shape = SubResource("RectangleShape2D_rcdx5")
+
+[node name="right_movement" type="Area2D" parent="." unique_id=1208367071]
+position = Vector2(1018, 6)
+
+[node name="right_collision" type="CollisionShape2D" parent="right_movement" unique_id=1145087293]
+position = Vector2(-6.5, 326.5)
+shape = SubResource("RectangleShape2D_rcdx5")
+
+[connection signal="mouse_entered" from="left_movement" to="." method="_on_left_movement_mouse_entered"]
+[connection signal="mouse_exited" from="left_movement" to="." method="_on_left_movement_mouse_exited"]
+[connection signal="mouse_entered" from="right_movement" to="." method="_on_right_movement_mouse_entered"]
+[connection signal="mouse_exited" from="right_movement" to="." method="_on_right_movement_mouse_exited"]

@@ -15,15 +15,22 @@ mono_crash.*.json
 *~
 
 # ============================================================
-# Re-include rules (must come BEFORE the broad ignore rules below)
+# Re-include rules — critical for `icon.svg.import`
 # ============================================================
-# `**/icon.svg.import`, `**/project.godot`, `**/icon.svg` need to be re-allowed
-# (the broad `*.import`, `*.cfg`, etc. patterns below would otherwise ignore them).
-# `**/` is a "match at any depth" glob in gitignore (git 1.8+).
-# We deliberately list each filename — `**/foo` re-includes every foo at any depth.
-**/project.godot
-**/icon.svg
-**/icon.svg.import
+# Godot needs `icon.svg.import` to render the project icon. The broad
+# `*.import` rule below would otherwise ignore it.
+#
+# IMPORTANT: negation patterns must NOT have a leading `/` — use `!foo`,
+# NOT `!/foo`. The `/` form is silently broken by git's negation logic.
+#
+# `**/foo` (with **) re-includes the file at any depth, protecting against
+# Godot's "Create on non-empty folder" bug (auto-slugified subfolder).
+!icon.svg.import
+!**/icon.svg.import
+!icon.svg
+!**/icon.svg
+!project.godot
+!**/project.godot
 
 # Godot-specific ignores
 *.cfg
@@ -33,3 +40,4 @@ mono_crash.*.json
 
 # Audio
 *.sample
+docs/design/room-state-system.md

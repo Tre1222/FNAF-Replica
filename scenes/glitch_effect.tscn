@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c0uml6c0gk3hy"]
+
+[ext_resource type="Shader" uid="uid://xngefgmukp1h" path="res://scripts/new_shader.gdshader" id="1_fp2hd"]
+[ext_resource type="Script" uid="uid://masnhjxxr3w6" path="res://scenes/glitch_effect.gd" id="1_gnbkp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gnbkp"]
+shader = ExtResource("1_fp2hd")
+shader_parameter/scanline_count = 300.0
+
+[node name="glitch_effect" type="CanvasLayer" unique_id=979758699]
+script = ExtResource("1_gnbkp")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1068114504]
+material = SubResource("ShaderMaterial_gnbkp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

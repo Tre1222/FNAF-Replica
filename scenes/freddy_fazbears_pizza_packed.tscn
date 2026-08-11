@@ -1,5 +1,73 @@
 [gd_scene format=3 uid="uid://dffsvrlotb6bu"]
 
 [ext_resource type="PackedScene" uid="uid://dkklusmebrnk8" path="res://assets/imports/FreddyFazbearsPizza_Packed.glb" id="1_5wm66"]
+[ext_resource type="AudioStream" uid="uid://dqp0evfj3ptak" path="res://assets/audio/office/songs/19 Midnight, The Stars And You.mp3" id="2_5wm66"]
+[ext_resource type="Script" uid="uid://dw15887prhywm" path="res://scripts/speaker_desk.gd" id="2_oaklr"]
+[ext_resource type="Script" uid="uid://c4s52185i8ts0" path="res://scripts/light_button.gd" id="2_sxoy0"]
+[ext_resource type="AudioStream" uid="uid://twvela8jaxbj" path="res://assets/audio/office/turn_off.mp3" id="4_4lwnw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ggwxf"]
+size = Vector3(0.076538086, 0.13250732, 0.14282227)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4lwnw"]
+size = Vector3(0.5444336, 0.8618469, 1)
 
 [node name="FreddyFazbearsPizza_Packed" unique_id=1688247775 instance=ExtResource("1_5wm66")]
+
+[node name="LightButton_Left" parent="DoorPanel_Left" parent_id_path=PackedInt32Array(2081103221) index="1" unique_id=139435199]
+script = ExtResource("2_sxoy0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorPanel_Left/LightButton_Left" index="0" unique_id=1460996439]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPanel_Left/LightButton_Left/StaticBody3D" index="0" unique_id=1882603206]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014343262, -0.0007019043, -0.0013426542)
+shape = SubResource("BoxShape3D_ggwxf")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DoorPanel_Left/LightButton_Left" index="1" unique_id=117314816]
+transform = Transform3D(0.9784397, 0.114409484, -0.17194855, 0.009178809, 0.8076373, 0.5896082, 0.20632882, -0.57847434, 0.7891742, -2.7336025, 1.9449718, 3.9588995)
+shadow_enabled = true
+spot_range = 8.945
+spot_angle = 37.45
+
+[node name="LightButton_Right" parent="DoorPanel_Right" parent_id_path=PackedInt32Array(1585723986) index="1" unique_id=1245319179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027452826, 1.3620012, 0)
+script = ExtResource("2_sxoy0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorPanel_Right/LightButton_Right" index="0" unique_id=1528700120]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorPanel_Right/LightButton_Right/StaticBody3D" index="0" unique_id=409157429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014343262, -0.0007019043, -0.0013426542)
+shape = SubResource("BoxShape3D_ggwxf")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="DoorPanel_Right/LightButton_Right" index="1" unique_id=1755681737]
+transform = Transform3D(-0.8126924, -0.33752182, 0.4749844, 0.009178817, 0.8076371, 0.58960825, -0.5826207, 0.4835299, -0.6532624, -0.65829206, 1.9449718, -4.090559)
+shadow_enabled = true
+spot_range = 8.945
+spot_angle = 37.45
+
+[node name="Speaker_Desk" parent="." index="297" unique_id=1375426430]
+script = ExtResource("2_oaklr")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Speaker_Desk" index="0" unique_id=1656079245]
+transform = Transform3D(-0.9566207, 0, 0.29133645, 0, 1, 0, -0.29133645, 0, -0.9566207, 0.08728176, 0.35638392, 0.17577505)
+stream = ExtResource("2_5wm66")
+volume_db = -10.0
+emission_angle_enabled = true
+emission_angle_degrees = 36.1
+
+[node name="click_sound" type="AudioStreamPlayer3D" parent="Speaker_Desk" index="1" unique_id=1487707640]
+transform = Transform3D(-0.9566207, 0, 0.29133645, 0, 1, 0, -0.29133645, 0, -0.9566207, 0.08728176, 0.35638392, 0.17577505)
+stream = ExtResource("4_4lwnw")
+volume_db = -10.0
+emission_angle_enabled = true
+emission_angle_degrees = 36.1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Speaker_Desk" index="2" unique_id=1736595057]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Speaker_Desk/StaticBody3D" index="0" unique_id=1581656649]
+transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.016357481, 0.46748352, 0)
+shape = SubResource("BoxShape3D_4lwnw")
+
+[connection signal="input_event" from="DoorPanel_Left/LightButton_Left/StaticBody3D" to="DoorPanel_Left/LightButton_Left" method="_on_static_body_3d_input_event"]
+[connection signal="input_event" from="DoorPanel_Right/LightButton_Right/StaticBody3D" to="DoorPanel_Right/LightButton_Right" method="_on_static_body_3d_input_event"]
+[connection signal="input_event" from="Speaker_Desk/StaticBody3D" to="Speaker_Desk" method="_on_static_body_3d_input_event"]

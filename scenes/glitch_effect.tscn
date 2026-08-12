@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0uml6c0gk3hy"]
 
 [ext_resource type="Shader" uid="uid://xngefgmukp1h" path="res://scripts/new_shader.gdshader" id="1_fp2hd"]
-[ext_resource type="Script" uid="uid://masnhjxxr3w6" path="res://scenes/glitch_effect.gd" id="1_gnbkp"]
+[ext_resource type="Script" uid="uid://masnhjxxr3w6" path="res://scripts/glitch_effect.gd" id="1_gnbkp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gnbkp"]
 shader = ExtResource("1_fp2hd")

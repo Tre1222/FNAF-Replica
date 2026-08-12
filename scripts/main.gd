@@ -5,11 +5,17 @@ var right_limit = deg_to_rad(40.0)
 var up_limit = deg_to_rad(40.0)
 var down_limit = deg_to_rad(-40.0)
 
+var zoom_in_limit = 99.4
+var zoom_out_limit = 50
+var zoom_speed = 50
+
 var rotation_speed = 1.5
 var smooth_speed = 5.0
 var target_rotation_y = 0.0
 var target_rotation_x = 0.0
 var deadzone = 0.15
+
+
 
 func _ready():
 	print("Main script is ready!")
@@ -53,14 +59,22 @@ func movement(delta):
 	else:
 		offset_y = sign(offset_y) * ((abs(offset_y) - deadzone) / (1.0 - deadzone))
 
+	if Input.is_action_just_pressed("zoom_in"):
+		Global.office_camera.fov -= zoom_speed * delta
+
+	if Input.is_action_just_pressed("zoom_out"):
+		Global.office_camera.fov += zoom_speed * delta
+
 	target_rotation_y -= offset_x * rotation_speed * delta
 	target_rotation_x -= offset_y * rotation_speed * delta
 
 	target_rotation_y = clamp(target_rotation_y, left_limit, right_limit)
 	target_rotation_x = clamp(target_rotation_x, down_limit, up_limit)
-
+	Global.office_camera.fov = clamp(Global.office_camera.fov, zoom_out_limit, zoom_in_limit)
 	Global.office_camera.rotation.y = lerp_angle(Global.office_camera.rotation.y, target_rotation_y, smooth_speed * delta)
 	Global.office_camera.rotation.x = lerp_angle(Global.office_camera.rotation.x, target_rotation_x, smooth_speed * delta)
+
+
 
 func _process(delta):
 	movement(delta)

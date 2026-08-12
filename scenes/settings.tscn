@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://pmfhrw4ig3g5"]
+
+[ext_resource type="Script" uid="uid://bdn8blsgcjbgg" path="res://scenes/settings.gd" id="1_5p8wc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p8wc"]
+corner_detail = 20
+
+[node name="settings" type="CanvasLayer" unique_id=1370803010]
+script = ExtResource("1_5p8wc")
+
+[node name="Panel" type="Panel" parent="." unique_id=1085900465]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -461.5
+offset_top = -300.0
+offset_right = 461.5
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")

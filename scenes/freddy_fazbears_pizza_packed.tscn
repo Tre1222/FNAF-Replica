@@ -4,10 +4,15 @@
 [ext_resource type="AudioStream" uid="uid://dqp0evfj3ptak" path="res://assets/audio/office/songs/19 Midnight, The Stars And You.mp3" id="2_5wm66"]
 [ext_resource type="Script" uid="uid://dw15887prhywm" path="res://scripts/speaker_desk.gd" id="2_oaklr"]
 [ext_resource type="Script" uid="uid://c4s52185i8ts0" path="res://scripts/light_button.gd" id="2_sxoy0"]
+[ext_resource type="Script" uid="uid://dnj6h28qvon3v" path="res://scripts/poster.gd" id="3_lwr4k"]
 [ext_resource type="AudioStream" uid="uid://twvela8jaxbj" path="res://assets/audio/office/turn_off.mp3" id="4_4lwnw"]
+[ext_resource type="AudioStream" uid="uid://dgk7fcp237xc4" path="res://assets/audio/office/freddy_honk.mp3" id="4_gl7pq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ggwxf"]
 size = Vector3(0.076538086, 0.13250732, 0.14282227)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3hik3"]
+size = Vector3(0.069885254, 0.14648438, 0.10064697)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4lwnw"]
 size = Vector3(0.5444336, 0.8618469, 1)
@@ -25,6 +30,7 @@ shape = SubResource("BoxShape3D_ggwxf")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="DoorPanel_Left/LightButton_Left" index="1" unique_id=117314816]
 transform = Transform3D(0.9784397, 0.114409484, -0.17194855, 0.009178809, 0.8076373, 0.5896082, 0.20632882, -0.57847434, 0.7891742, -2.7336025, 1.9449718, 3.9588995)
+light_energy = 2.678
 shadow_enabled = true
 spot_range = 8.945
 spot_angle = 37.45
@@ -41,9 +47,22 @@ shape = SubResource("BoxShape3D_ggwxf")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="DoorPanel_Right/LightButton_Right" index="1" unique_id=1755681737]
 transform = Transform3D(-0.8126924, -0.33752182, 0.4749844, 0.009178817, 0.8076371, 0.58960825, -0.5826207, 0.4835299, -0.6532624, -0.65829206, 1.9449718, -4.090559)
+light_energy = 2.678
 shadow_enabled = true
 spot_range = 8.945
 spot_angle = 37.45
+
+[node name="PosterCelebrate" parent="." index="257" unique_id=1783792961]
+script = ExtResource("3_lwr4k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PosterCelebrate" index="0" unique_id=570268224]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PosterCelebrate/StaticBody3D" index="0" unique_id=1439821407]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03945923, -0.0046386123, -0.30581665)
+shape = SubResource("BoxShape3D_3hik3")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PosterCelebrate" index="1" unique_id=969819457]
+stream = ExtResource("4_gl7pq")
 
 [node name="Speaker_Desk" parent="." index="297" unique_id=1375426430]
 script = ExtResource("2_oaklr")
@@ -70,4 +89,5 @@ shape = SubResource("BoxShape3D_4lwnw")
 
 [connection signal="input_event" from="DoorPanel_Left/LightButton_Left/StaticBody3D" to="DoorPanel_Left/LightButton_Left" method="_on_static_body_3d_input_event"]
 [connection signal="input_event" from="DoorPanel_Right/LightButton_Right/StaticBody3D" to="DoorPanel_Right/LightButton_Right" method="_on_static_body_3d_input_event"]
+[connection signal="input_event" from="PosterCelebrate/StaticBody3D" to="PosterCelebrate" method="_on_static_body_3d_input_event"]
 [connection signal="input_event" from="Speaker_Desk/StaticBody3D" to="Speaker_Desk" method="_on_static_body_3d_input_event"]

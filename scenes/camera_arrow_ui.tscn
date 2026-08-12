@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://biow0fv3wyk3n" path="res://assets/ui/camera/monitor/monitor 2.png" id="13_6qbc2"]
 [ext_resource type="Texture2D" uid="uid://dt8f18fvjbb0o" path="res://assets/ui/camera/monitor/monitor 1.png" id="14_n8opb"]
 [ext_resource type="Script" uid="uid://baujgx7xc4n7t" path="res://scripts/monitor.gd" id="15_awa7i"]
+[ext_resource type="Texture2D" uid="uid://baujtt5576gp8" path="res://assets/ui/settings/settings.png" id="16_ys4iq"]
+[ext_resource type="Script" uid="uid://mbyqojfut2i3" path="res://scripts/settings_button.gd" id="17_ys4iq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6evjv"]
 animations = [{
@@ -104,11 +106,11 @@ animations = [{
 script = ExtResource("1_etsbw")
 
 [node name="camera_arrow" type="TextureButton" parent="." unique_id=1997816904]
-offset_left = 278.0
-offset_top = 522.0
-offset_right = 878.0
-offset_bottom = 582.0
-scale = Vector2(1, 2.04)
+offset_left = 277.0
+offset_top = 555.0
+offset_right = 877.0
+offset_bottom = 615.0
+scale = Vector2(1, 1.1999977)
 texture_normal = ExtResource("1_vbufk")
 script = ExtResource("4_c1pp8")
 
@@ -127,6 +129,16 @@ script = ExtResource("15_awa7i")
 [node name="Timer" type="Timer" parent="monitor" unique_id=399701786]
 wait_time = 0.5
 one_shot = true
+
+[node name="settings_button" type="TextureButton" parent="." unique_id=776926970]
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 64.0
+offset_bottom = 58.0
+texture_normal = ExtResource("16_ys4iq")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("17_ys4iq")
 
 [connection signal="camera_arrow_toggled" from="." to="monitor" method="_on_camera_arrow_ui_camera_arrow_toggled"]
 [connection signal="mouse_entered" from="camera_arrow" to="." method="_on_camera_arrow_mouse_entered"]

@@ -4,8 +4,11 @@ func _ready():
     print("Settings Button script is ready!")
     Global.settings_open = false
 
+
 const SETTINGS_SCENE = preload("res://scenes/settings.tscn")
 signal delete_scene
+
+
 
 func _pressed():
     if Global.settings_open:
@@ -14,5 +17,5 @@ func _pressed():
     else:
         Global.settings_open = true
         var settings = SETTINGS_SCENE.instantiate()
-        add_child(settings)
+        add_sibling(settings)
         

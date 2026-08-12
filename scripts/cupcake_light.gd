@@ -15,8 +15,11 @@ var target_range = 5.0
 var base_range = 5.0
 var time_passed = 0.0
 
+@onready var audio_player = get_node("AudioStreamPlayer3D")
+
 func _ready() -> void:
     base_energy = omni_range
+    Global.candle_volume_changed.connect(_on_Global_candle_volume_changed)
 
 func _process(delta) -> void:
     time_passed += delta
@@ -28,3 +31,7 @@ func _process(delta) -> void:
 
     light_energy = lerp(light_energy, target_energy, delta * 15.0)
     omni_range = lerp(omni_range, target_range, delta * 15.0)
+func _on_Global_candle_volume_changed(volume: float) -> void:
+    audio_player.volume_db = volume
+    print("Volume: " + str(audio_player.volume_db))
+    

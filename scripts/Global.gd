@@ -1,6 +1,7 @@
 extends Node
 
 signal settings_toggled()
+signal candle_volume_changed()
 
 var office_camera = null
 var right_door_camera = null
@@ -24,11 +25,21 @@ var right_movement = false
 
 var settings_open = false:
     set(new_value):
-       if settings_open != new_value:
-           settings_open = new_value
-           emit_signal("settings_toggled")
+        if settings_open != new_value:
+            settings_open = new_value
+            emit_signal("settings_toggled", settings_open)
+        print("Settings Open" if settings_open else "Settings Closed")
 
 
-var music_volume = 100
-var candle_volume = 100
+var music_volume = 100:
+    set(new_value):
+        if music_volume != new_value:
+            music_volume = new_value
+            print("Music Volume: " + str(music_volume))
+
+var candle_volume = 100:
+    set(new_value):
+        if candle_volume != new_value:
+            candle_volume = new_value
+            emit_signal("candle_volume_changed", candle_volume)
 var office_lights = 100

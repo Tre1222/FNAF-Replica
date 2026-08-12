@@ -30,6 +30,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="FNAF Replica"
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 zoom_in={

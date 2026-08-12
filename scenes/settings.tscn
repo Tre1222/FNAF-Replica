@@ -1,25 +1,172 @@
 [gd_scene format=3 uid="uid://pmfhrw4ig3g5"]
 
-[ext_resource type="Script" uid="uid://bdn8blsgcjbgg" path="res://scenes/settings.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://bdn8blsgcjbgg" path="res://scripts/settings.gd" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://cgdm6lvxn6u23" path="res://scripts/v_box_container.gd" id="2_r6d6q"]
+[ext_resource type="Texture2D" uid="uid://ctd2nnrcwbtua" path="res://assets/ui/settings/cupcake_volume.png" id="3_6wm04"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p8wc"]
-corner_detail = 20
-
-[node name="settings" type="CanvasLayer" unique_id=1370803010]
-script = ExtResource("1_5p8wc")
-
-[node name="Panel" type="Panel" parent="." unique_id=1085900465]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -461.5
-offset_top = -300.0
-offset_right = 461.5
-offset_bottom = 300.0
+[node name="Control" type="Control" unique_id=1775917133]
+custom_minimum_size = Vector2(788, 400)
+layout_mode = 3
+anchor_left = 0.1579861
+anchor_top = 0.19135803
+anchor_right = 0.8420139
+anchor_bottom = 0.80864197
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_5p8wc")
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1385233167]
+custom_minimum_size = Vector2(788, 400)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer" unique_id=865983269]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer" unique_id=957144896]
+layout_mode = 2
+script = ExtResource("2_r6d6q")
+
+[node name="first_row" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1593182095]
+layout_mode = 2
+
+[node name="candle_margin" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row" unique_id=1555886638]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="candle_volume_container" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/candle_margin" unique_id=1694121412]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="candle_volume_image" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/candle_margin/candle_volume_container" unique_id=1814360174]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5p8wc")
+texture = ExtResource("3_6wm04")
+expand_mode = 1
+
+[node name="candle_volume_slider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/candle_margin/candle_volume_container" unique_id=438364527]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+min_value = -50.0
+max_value = 50.0
+
+[node name="music_margin" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row" unique_id=1225474450]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="music_volume_container" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/music_margin" unique_id=1463080833]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="music_volume_image" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/music_margin/music_volume_container" unique_id=103962531]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="music_volume_slider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/music_margin/music_volume_container" unique_id=2088670118]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row" unique_id=959366459]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3" unique_id=2097908784]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3/VBoxContainer" unique_id=1079011115]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3/VBoxContainer" unique_id=768485156]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1530014434]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=891782807]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer" unique_id=2040033406]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=1065008004]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/VBoxContainer" unique_id=256329938]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1510274070]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2" unique_id=414044470]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=291285890]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer2/VBoxContainer" unique_id=1484129034]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=190819778]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer3" unique_id=1043199838]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer" unique_id=836133011]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+expand_mode = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer3/VBoxContainer" unique_id=280027203]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[connection signal="value_changed" from="PanelContainer/ScrollContainer/VBoxContainer/first_row/candle_margin/candle_volume_container/candle_volume_slider" to="PanelContainer/ScrollContainer/VBoxContainer" method="_on_candle_volume_slider_value_changed"]

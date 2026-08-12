@@ -1,7 +1,7 @@
-extends CanvasLayer
+extends Control
 
-var settings_button;
+@onready var settings_button = $"../settings_button"
 
 func _ready():
-	settings_button = get_parent()
 	settings_button.connect("delete_scene", Callable(self, "queue_free"))
+	

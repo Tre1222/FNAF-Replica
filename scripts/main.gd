@@ -39,7 +39,8 @@ func _ready():
 func movement(delta):
 	if Global.cameras_open:
 		return
-
+	if Global.settings_open:
+		return
 	var mouse_pos = get_viewport().get_mouse_position()
 	var screen_size = get_viewport().get_visible_rect().size
 	

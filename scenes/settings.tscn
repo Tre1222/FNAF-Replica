@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdn8blsgcjbgg" path="res://scripts/settings.gd" id="1_5p8wc"]
 [ext_resource type="Script" uid="uid://cgdm6lvxn6u23" path="res://scripts/v_box_container.gd" id="2_r6d6q"]
 [ext_resource type="Texture2D" uid="uid://ctd2nnrcwbtua" path="res://assets/ui/settings/cupcake_volume.png" id="3_6wm04"]
+[ext_resource type="Texture2D" uid="uid://doyeixh5342o7" path="res://assets/ui/settings/song_volume.png" id="4_f4mfi"]
 
 [node name="Control" type="Control" unique_id=1775917133]
 custom_minimum_size = Vector2(788, 400)
@@ -76,32 +77,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 4
+texture = ExtResource("4_f4mfi")
 expand_mode = 1
 
 [node name="music_volume_slider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/music_margin/music_volume_container" unique_id=2088670118]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-
-[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row" unique_id=959366459]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3" unique_id=2097908784]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3/VBoxContainer" unique_id=1079011115]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-expand_mode = 1
-
-[node name="HSlider" type="HSlider" parent="PanelContainer/ScrollContainer/VBoxContainer/first_row/MarginContainer3/VBoxContainer" unique_id=768485156]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
+min_value = -50.0
+max_value = 50.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/ScrollContainer/VBoxContainer" unique_id=1530014434]
 layout_mode = 2
@@ -170,3 +153,4 @@ custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
 [connection signal="value_changed" from="PanelContainer/ScrollContainer/VBoxContainer/first_row/candle_margin/candle_volume_container/candle_volume_slider" to="PanelContainer/ScrollContainer/VBoxContainer" method="_on_candle_volume_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/ScrollContainer/VBoxContainer/first_row/music_margin/music_volume_container/music_volume_slider" to="PanelContainer/ScrollContainer/VBoxContainer" method="_on_music_volume_slider_value_changed"]

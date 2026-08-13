@@ -17,6 +17,33 @@ size = Vector3(0.069885254, 0.14648438, 0.10064697)
 [sub_resource type="BoxShape3D" id="BoxShape3D_4lwnw"]
 size = Vector3(0.5444336, 0.8618469, 1)
 
+[sub_resource type="Animation" id="Animation_lwr4k"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("F1Door_Right")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.803, 2.3, 0)
+
+[sub_resource type="Animation" id="Animation_gl7pq"]
+resource_name = "lower_right_door"
+length = 2.0666666
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("F1Door_Right")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.803, 2.4, 0, 0.13333334, 1, 1.803, 2.435189, 0, 1.7, 1, 1.803, 1.1371458, 0, 1.9, 1, 1.803, 0.27227396, 0, 2.0666666, 1, 1.803, 0.11259508, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3hik3"]
+_data = {
+&"RESET": SubResource("Animation_lwr4k"),
+&"lower_right_door": SubResource("Animation_gl7pq")
+}
+
 [node name="FreddyFazbearsPizza_Packed" unique_id=1688247775 instance=ExtResource("1_5wm66")]
 
 [node name="LightButton_Left" parent="DoorPanel_Left" parent_id_path=PackedInt32Array(2081103221) index="1" unique_id=139435199]
@@ -52,7 +79,14 @@ shadow_enabled = true
 spot_range = 8.945
 spot_angle = 37.45
 
-[node name="PosterCelebrate" parent="." index="257" unique_id=1783792961]
+[node name="left_door_parent" type="Node3D" parent="." index="136" unique_id=1198437630]
+
+[node name="right_door_parent" type="Node3D" parent="." index="137" unique_id=1922373280]
+
+[node name="F1Door_Right" parent="." index="139" unique_id=87208754]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 1.803, 2.3, 0)
+
+[node name="PosterCelebrate" parent="." index="259" unique_id=1783792961]
 script = ExtResource("3_lwr4k")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PosterCelebrate" index="0" unique_id=570268224]
@@ -64,7 +98,7 @@ shape = SubResource("BoxShape3D_3hik3")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PosterCelebrate" index="1" unique_id=969819457]
 stream = ExtResource("4_gl7pq")
 
-[node name="Speaker_Desk" parent="." index="297" unique_id=1375426430]
+[node name="Speaker_Desk" parent="." index="299" unique_id=1375426430]
 script = ExtResource("2_oaklr")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Speaker_Desk" index="0" unique_id=1656079245]
@@ -86,6 +120,9 @@ emission_angle_degrees = 36.1
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Speaker_Desk/StaticBody3D" index="0" unique_id=1581656649]
 transform = Transform3D(0.9999995, 0, 0, 0, 1, 0, 0, 0, 0.9999995, -0.016357481, 0.46748352, 0)
 shape = SubResource("BoxShape3D_4lwnw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="395" unique_id=1631305047]
+libraries/ = SubResource("AnimationLibrary_3hik3")
 
 [connection signal="input_event" from="DoorPanel_Left/LightButton_Left/StaticBody3D" to="DoorPanel_Left/LightButton_Left" method="_on_static_body_3d_input_event"]
 [connection signal="input_event" from="DoorPanel_Right/LightButton_Right/StaticBody3D" to="DoorPanel_Right/LightButton_Right" method="_on_static_body_3d_input_event"]

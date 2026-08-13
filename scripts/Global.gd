@@ -2,6 +2,7 @@ extends Node
 
 signal settings_toggled()
 signal candle_volume_changed()
+signal music_volume_changed()
 
 var office_camera = null
 var right_door_camera = null
@@ -36,6 +37,9 @@ var music_volume = 100:
         if music_volume != new_value:
             music_volume = new_value
             print("Music Volume: " + str(music_volume))
+            emit_signal("music_volume_changed", music_volume)
+
+
 
 var candle_volume = 100:
     set(new_value):

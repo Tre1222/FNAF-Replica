@@ -31,6 +31,8 @@ func _process(delta) -> void:
 
     light_energy = lerp(light_energy, target_energy, delta * 15.0)
     omni_range = lerp(omni_range, target_range, delta * 15.0)
+
+
 func _on_Global_candle_volume_changed(volume: float) -> void:
     audio_player.volume_db = volume
     print("Volume: " + str(audio_player.volume_db))

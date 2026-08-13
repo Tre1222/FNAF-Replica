@@ -8,7 +8,18 @@ extends MeshInstance3D
 @onready var turn_on_sound = load ("res://assets/audio/office/turn_on.mp3")
 @onready var turn_off_sound = load ("res://assets/audio/office/turn_off.mp3")
 
+
+
 var is_playing = false
+
+func _ready():
+    Global.music_volume_changed.connect(_on_Global_music_volume_changed)
+
+func _on_Global_music_volume_changed(volume: float) -> void:
+    audio_player.volume_db = volume
+    print("Candle Volume: " + str(volume))
+
+
 func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, _event_position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
     if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and not Global.cameras_open:
         
@@ -24,3 +35,4 @@ func _on_static_body_3d_input_event(_camera: Node, event: InputEvent, _event_pos
             click_sound.play()
             is_playing = true
             audio_player.play()
+
